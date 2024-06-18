@@ -1,0 +1,214 @@
+"'Tela _Consultar_Grade' As screen":
+
+    "registros_venda_Grade As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        BorderThickness: =2
+        DelayItemLoading: =true
+        Height: =958
+        Items: |
+            =Filter
+            (Vendas_Grade, 
+            StartsWith (Nome,Seach_Nome_Consultar_Grade.Selected.Value) Or IsBlank (Seach_Nome_Consultar_Grade.Selected.Value),
+            StartsWith (Matricula,Seach_Matricula_Consultar_Grade.Selected.Value) Or IsBlank (Seach_Matricula_Consultar_Grade.Selected.Value))
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowNavigation: =true
+        TemplatePadding: =0
+        TemplateSize: =136
+        Y: =178
+        ZIndex: =1
+
+        Titulo_Matricula_grade As label:
+            Color: =RGBA(0, 0, 0, 1)
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =39
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =20
+            Text: |-
+                ="Matrícula: "&ThisItem.Matricula
+            VerticalAlign: =VerticalAlign.Top
+            Width: =291
+            X: =13
+            Y: =48
+            ZIndex: =2
+
+        Titulo_idmeta_1 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =37
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =20
+            Text: |-
+                ="Idmeta: "&ThisItem.IdMeta
+            VerticalAlign: =VerticalAlign.Top
+            Width: =145
+            X: =13
+            Y: =13
+            ZIndex: =3
+
+        Seguir_grade As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledColor: =RGBA(119, 119, 119, 1)
+            Height: =50
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent);EditForm(Cadastro_Edicao_Grade);Navigate(Tela_Cadastro_Selecionado_Grade,ScreenTransition.Fade)
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Tooltip: ="Ver detalhes do item"
+            Width: =50
+            X: =557
+            ZIndex: =4
+
+        separador_linha_2 As rectangle:
+            Height: =8
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =5
+
+        caixa_separacao_2 As rectangle:
+            Height: =Parent.TemplateHeight - separador_linha_2.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =6
+
+        Ico_apagar_grade As icon.Trash:
+            Height: =35
+            Icon: =Icon.Trash
+            OnSelect: =Remove(Vendas_Grade,ThisItem);Notify("Registro removido com sucesso",NotificationType.Success); Navigate('Tela _Consultar_Grade',ScreenTransition.Fade)
+            Width: =35
+            X: =492
+            Y: =13
+            ZIndex: =7
+
+        Titulo_Nome_grade As label:
+            Color: =RGBA(0, 0, 0, 1)
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =41
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =20
+            Text: |-
+                ="Nome: "&ThisItem.Nome
+            VerticalAlign: =VerticalAlign.Top
+            Width: =205
+            X: =13
+            Y: =87
+            ZIndex: =8
+
+    cabecalho_tela_consultar_grade As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 18, 107, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =90
+        Size: =21
+        Text: ="Grades"
+        Width: =640
+        ZIndex: =2
+
+    Fundo_consultar_grade As label:
+        BorderStyle: =BorderStyle.Dotted
+        BorderThickness: =3
+        Fill: =RGBA(186, 202, 226, 1)
+        Height: =87
+        Size: =21
+        Text: =
+        Width: =640
+        Y: =90
+        ZIndex: =3
+
+    Retorno_Tela_Consultar_Grade As icon.ChevronLeft:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =45
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(Tela_Consulta_Grade,ScreenTransition.Fade)
+        Width: =71
+        Y: =22
+        ZIndex: =4
+
+    HOME_Tela_Consultar_Grade As icon.Home:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =45
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Tela_Inicial,ScreenTransition.Fade)
+        Width: =80
+        X: =545
+        Y: =22
+        ZIndex: =5
+
+    Seach_Matricula_Consultar_Grade As combobox:
+        BorderThickness: =5
+        ChevronBackground: =RGBA(0, 18, 107, 1)
+        DisplayFields: =[""]
+        Height: =45
+        IsSearchable: =false
+        Items: =Distinct(Vendas_Grade,Matricula)
+        SearchFields: =[""]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =21
+        Width: =212
+        X: =48
+        Y: =120
+        ZIndex: =8
+
+    Seach_Nome_Consultar_Grade As combobox:
+        BorderThickness: =5
+        ChevronBackground: =RGBA(0, 18, 107, 1)
+        DisplayFields: =["Value"]
+        Height: =45
+        IsSearchable: =false
+        Items: =Distinct(Vendas_Grade,Nome)
+        SearchFields: =["Value"]
+        SearchItems: =Search(Distinct(Vendas_Grade,Nome),Seach_Nome_Consultar_Grade.SearchText,Value)
+        SelectMultiple: =false
+        Size: =21
+        Width: =212
+        X: =381
+        Y: =120
+        ZIndex: =9
+
+    Titulo_seach_matricula_Grade As text:
+        Align: =Align.Center
+        BorderThickness: =0
+        Color: =RGBA(255, 255, 255, 1)
+        Default: ="Matricula"
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Bold
+        Height: =53
+        HintText: ="Matricula"
+        Size: =15
+        Width: =167
+        X: =37
+        Y: =80
+        ZIndex: =10
+
+    Titulo_seach_nome_Grade As text:
+        Align: =Align.Center
+        BorderThickness: =0
+        Color: =RGBA(255, 255, 255, 1)
+        Default: ="Nome"
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Bold
+        Height: =53
+        Size: =15
+        Width: =167
+        X: =403
+        Y: =80
+        ZIndex: =11
+

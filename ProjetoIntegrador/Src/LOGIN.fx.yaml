@@ -1,0 +1,95 @@
+LOGIN As screen:
+
+    Fundo2_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =467
+        Size: =21
+        Text: =""
+        Width: =640
+        ZIndex: =1
+
+    Fundo_inicio_1 As label:
+        Fill: =RGBA(186, 202, 226, 1)
+        Height: =675
+        Size: =21
+        Text: =
+        Width: =640
+        Y: =460
+        ZIndex: =3
+
+    ico_email As text:
+        Default: =
+        Height: =75
+        HintText: ="EMAIL"
+        Size: =21
+        Width: =382
+        X: =108
+        Y: =548
+        ZIndex: =5
+
+    ico_senha As text:
+        Default: =
+        Height: =74
+        HintText: ="SENHA"
+        Size: =21
+        Width: =382
+        X: =108
+        Y: =623
+        ZIndex: =6
+
+    Entrar_1 As button:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =61
+        OnSelect: |-
+            =If(
+                !IsBlank(
+            LookUp
+            (Vendas_Cadastro,Email = ico_email.Text And Senha = ico_senha.Text)
+                ),Navigate(Tela_Inicial,ScreenTransition.Fade);
+                UpdateContext({msg:true}),
+                UpdateContext({msg:false});
+                Reset(ico_email);Reset(ico_senha);
+                )
+        Size: =24
+        Text: ="LOGAR"
+        Width: =382
+        X: =108
+        Y: =697
+        ZIndex: =7
+
+    TextInput3 As text:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(255, 0, 0, 1)
+        Default: ="Login ou senha inválido!"
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Bold
+        Height: =70
+        Size: =20
+        Visible: =If(msg = true, false, true)
+        Width: =560
+        X: =40
+        Y: =794
+        ZIndex: =8
+
+    Icon4 As icon.Calculator:
+        Color: =RGBA(241, 244, 249, 1)
+        Height: =131
+        Icon: =Icon.Calculator
+        Width: =158
+        X: =269
+        Y: =127
+        ZIndex: =9
+
+    Icon5 As icon.Database:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =161
+        Icon: =Icon.Database
+        Width: =126
+        X: =198
+        Y: =182
+        ZIndex: =10
+

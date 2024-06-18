@@ -1,0 +1,127 @@
+{
+  "530c605a-6379-42e5-b8ef-6f8666180ad9": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Fluxos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3784/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "e44d7bd5-8011-4b04-8695-7d564f86c78e": {
+          "value": "shared_sql"
+        },
+        "workflowDisplayName": {
+          "value": "PowerAppV2 -> Inicializar variável,Executar procedimento armazenado..."
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "51c0585a-5cf3-4795-916e-1c1e9b7d84c1"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sql": {
+          "value": "e44d7bd5-8011-4b04-8695-7d564f86c78e"
+        },
+        "workflowDisplayName": {
+          "value": "PowerAppV2 -> Inicializar variável,Executar procedimento armazenado..."
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "51c0585a-5cf3-4795-916e-1c1e9b7d84c1"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "PowerAppV2->Inicializarvariável,Executarprocedimentoarmazenado..."
+    ],
+    "dependencies": {
+      "shared_sql": "e44d7bd5-8011-4b04-8695-7d564f86c78e"
+    },
+    "dependents": [],
+    "id": "530c605a-6379-42e5-b8ef-6f8666180ad9"
+  },
+  "cb52e232-17e9-4ef1-b00f-55f421c2ece1": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write",
+      "providers/PowerPlatform.Governance/Operations/Delete"
+    ],
+    "connectionRef": {
+      "apiTier": "Premium",
+      "displayName": "SQL Server",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1686/1.0.1686.3706/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "runtimePolicyName": "ff2617c5-93ef-4b4e-b406-fa698fd7751b",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/71ceba2b-2968-4233-ae75-1c70e17ac123"
+    },
+    "datasets": {
+      "projetointegradorunisa.database.windows.net,Projeto_Unisa": {
+        "dataSources": {
+          "Vendas_Meta": {
+            "tableName": "[dbo].[Vendas_Meta]"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Vendas_Meta"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "endpoints": [
+      "projetointegradorunisa.database.windows.net,Projeto_Unisa"
+    ],
+    "id": "cb52e232-17e9-4ef1-b00f-55f421c2ece1"
+  },
+  "e44d7bd5-8011-4b04-8695-7d564f86c78e": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write",
+      "providers/PowerPlatform.Governance/Operations/Delete",
+      "ExecuteProcedure_V2"
+    ],
+    "connectionRef": {
+      "apiTier": "Premium",
+      "displayName": "SQL Server",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1686/1.0.1686.3706/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "runtimePolicyName": "625d08d7-0bc8-4015-affa-e3ccec712140",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/71ceba2b-2968-4233-ae75-1c70e17ac122"
+    },
+    "datasets": {
+      "projetointegradorunisa.database.windows.net,Projeto_Unisa": {
+        "dataSources": {
+          "Vendas_Cadastro": {
+            "tableName": "[dbo].[Vendas_Cadastro]"
+          },
+          "Vendas_Grade": {
+            "tableName": "[dbo].[Vendas_Grade]"
+          },
+          "Vendas_Resultado": {
+            "tableName": "[dbo].[Vendas_Resultado]"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Vendas_Cadastro",
+      "Vendas_Grade",
+      "Vendas_Resultado",
+      "GeraResultadoProc",
+      "LoginApi"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "530c605a-6379-42e5-b8ef-6f8666180ad9"
+    ],
+    "endpoints": [
+      "projetointegradorunisa.database.windows.net,Projeto_Unisa"
+    ],
+    "id": "e44d7bd5-8011-4b04-8695-7d564f86c78e"
+  }
+}

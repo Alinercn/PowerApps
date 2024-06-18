@@ -1,0 +1,145 @@
+Tela_Consulta_Resultado As screen:
+    Fill: =
+
+    fundo_consulta_Resultado As label:
+        BorderStyle: =BorderStyle.Dotted
+        BorderThickness: =2
+        Fill: =RGBA(186, 202, 226, 1)
+        Height: =90
+        Size: =21
+        Text: =
+        Width: =640
+        Y: =77
+        ZIndex: =1
+
+    registro_consulta_Resultado As gallery.galleryVertical:
+        BorderThickness: =2
+        DelayItemLoading: =true
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =969
+        Items: =Filter( Vendas_Resultado, StartsWith (Matricula,pesquisar_consulta_Resultado.Text) Or IsBlank(pesquisar_consulta_Resultado))
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        OnSelect: =
+        TemplateSize: =126
+        Y: =167
+        ZIndex: =2
+
+        Ico_meta_resultado As label:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Dotted
+            Height: =28
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: |-
+                ="Meta: "&ThisItem.TituloMeta
+            Width: =212
+            Y: =86
+            ZIndex: =8
+
+        ico_comissao_resultado As label:
+            Height: =44
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: |-
+                ="Comissão R$: "&ThisItem.Comissao
+            Width: =296
+            Y: =42
+            ZIndex: =9
+
+        ico_matricula_resultado As label:
+            Height: =42
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: |-
+                ="Matrícula: "&ThisItem.Matricula
+            Width: =157
+            ZIndex: =10
+
+    Cabeçalho_consulta_Resultado As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderStyle: =BorderStyle.Dotted
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(9, 33, 98, 1)
+        Height: =77
+        Size: =21
+        Text: ="Resultados"
+        Width: =640
+        ZIndex: =3
+
+    ico_home_consulta_Resultado As icon.Home:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =45
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Tela_Inicial,ScreenTransition.Fade)
+        Width: =80
+        X: =549
+        Y: =20
+        ZIndex: =4
+
+    contagemregistros_consulta_Resultado As label:
+        Align: =Align.Center
+        BorderStyle: =BorderStyle.Dotted
+        BorderThickness: =2
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =36
+        Size: =21
+        Text: =CountRows(Vendas_Resultado)
+        Width: =45
+        X: =578
+        Y: =104
+        ZIndex: =6
+
+    pesquisar_consulta_Resultado As text:
+        BorderThickness: =5
+        Default: =
+        Height: =38
+        HintText: ="Digite a matrícula"
+        OnSelect: =
+        RadiusBottomLeft: =7
+        RadiusBottomRight: =7
+        RadiusTopLeft: =7
+        RadiusTopRight: =7
+        Size: =10
+        Width: =233
+        X: =13
+        Y: =102
+        ZIndex: =7
+
+    cadastrar_gerar_Resultado As button:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =61
+        OnSelect: =ClearCollect(colnewsqlreturn, GeraResultadoProc.dboGeraResultados());Notify("Executado com sucesso",NotificationType.Success);Navigate(Tela_Consulta_Resultado_pos,ScreenTransition.Fade)
+        RadiusBottomLeft: =15
+        RadiusBottomRight: =15
+        RadiusTopLeft: =15
+        RadiusTopRight: =15
+        Text: ="Gerar Resultado"
+        Width: =153
+        X: =408
+        Y: =91
+        ZIndex: =9
+
+    ico_editar_detalhado_Resultado As button:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =61
+        OnSelect: =Navigate(registros_venda_resultados,ScreenTransition.Fade)
+        RadiusBottomLeft: =15
+        RadiusBottomRight: =15
+        RadiusTopLeft: =15
+        RadiusTopRight: =15
+        Text: ="Detalhado"
+        Width: =122
+        X: =271
+        Y: =91
+        ZIndex: =10
+
+    Icon3 As icon.Search:
+        Height: =38
+        Icon: =Icon.Search
+        Width: =46
+        X: =200
+        Y: =102
+        ZIndex: =11
+

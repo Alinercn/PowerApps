@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "51c0585a-5cf3-4795-916e-1c1e9b7d84c1",
+    "Name": "PowerAppV2->Inicializarvariável,Executarprocedimentoarmazenado...",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": null
+  }
+]

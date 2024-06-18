@@ -1,0 +1,41 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://msmanaged-na.azure-apim.net/apim/sql" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="Projeto_Unisa" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Projeto_Unisa">O Microsoft SQL Server é um sistema de gestão de bases de dados relacionais desenvolvido pela Microsoft. Ligue-se ao Servidor SQL para gerir dados. Pode efetuar várias ações, como criar, atualizar, obter e eliminar linhas numa tabela.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://msmanaged-na.azure-apim.net/apim/sql" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <untypedObject name="dbo_Gera_Resultados_outputparam_ResultSets_def" />
+      <integer name="dbo_Gera_Resultados_outputparam_ReturnCode_def" />
+      <untypedObject name="dbo_Gera_Resultados_outputparam_OutputParameters_def" />
+      <object name="dbo_Gera_Resultados_outputparam">
+        <property name="ResultSets" typeRef="dbo_Gera_Resultados_outputparam_ResultSets_def" />
+        <property name="ReturnCode" type="integer" />
+        <property name="OutputParameters" typeRef="dbo_Gera_Resultados_outputparam_OutputParameters_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://msmanaged-na.azure-apim.net/apim/sql">
+    <resource path="/{connectionId}/v2/datasets/{server},{database}/procedures/dbo.Gera_Resultados">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="server" type="xs:string" required="true">
+        <doc title="Name of SQL server" />
+      </param>
+      <param style="template" name="database" type="xs:string" required="true">
+        <doc title="Database name" />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="dboGeraResultados" actionName="dbo.Gera_Resultados" visibility="important" siena:isDeprecated="false" siena:family="fdaf5a13-84d8-4b6d-9c59-95e3a9fb8e2d" siena:revision="2" siena:status="Production" siena:isSafe="false">
+        <doc title="Execute stored procedure (V2)&#xA;This operation runs a stored procedure." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:dbo_Gera_Resultados_outputparam" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_sql" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

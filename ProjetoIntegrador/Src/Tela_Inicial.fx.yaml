@@ -1,0 +1,104 @@
+Tela_Inicial As screen:
+
+    Fundo2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =467
+        Size: =21
+        Text: =""
+        Width: =640
+        ZIndex: =1
+
+    Image1 As image:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderStyle: =BorderStyle.Dotted
+        BorderThickness: =3
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =287
+        Image: |
+            =User().Image
+        RadiusBottomLeft: =150
+        RadiusBottomRight: =150
+        RadiusTopLeft: =150
+        RadiusTopRight: =150
+        Width: =288
+        X: =183
+        Y: =13
+        ZIndex: =2
+
+    Saudacao As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =70
+        Size: =21
+        Text: ="Olá, " & Proper(User().FullName)
+        Width: =560
+        X: =40
+        Y: =339
+        ZIndex: =3
+
+    Fundo_inicio As label:
+        Fill: =RGBA(186, 202, 226, 1)
+        Height: =669
+        Size: =21
+        Text: =
+        Width: =640
+        Y: =467
+        ZIndex: =4
+
+    Botao_Cadastro As button:
+        DisabledBorderColor: =RGBA(186, 202, 226, 1)
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =50
+        OnSelect: =Navigate(Tela_Consulta_Cadastro,ScreenTransition.Fade)
+        Size: =24
+        Text: ="Cadastro"
+        Width: =284
+        X: =185
+        Y: =615
+        ZIndex: =5
+
+    Botao_grade As button:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =50
+        OnSelect: =Navigate(Tela_Consulta_Grade,ScreenTransition.Fade)
+        Size: =24
+        Text: ="Grade"
+        Width: =284
+        X: =185
+        Y: =763
+        ZIndex: =6
+
+    Botao_Meta As button:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =50
+        OnSelect: =Navigate(Tela_Consulta_Meta,ScreenTransition.Fade)
+        Size: =24
+        Text: ="Meta"
+        Width: =284
+        X: =183
+        Y: =686
+        ZIndex: =7
+
+    Texto_Orientacao As label:
+        Align: =Align.Center
+        Height: =70
+        Size: =21
+        Text: ="O que deseja fazer?"
+        Width: =560
+        X: =47
+        Y: =482
+        ZIndex: =8
+
+    Botao_Resultado As button:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =50
+        OnSelect: =Navigate(Tela_Consulta_Resultado,ScreenTransition.Fade)
+        Size: =24
+        Text: ="Resultado"
+        Width: =284
+        X: =185
+        Y: =841
+        ZIndex: =9
+
